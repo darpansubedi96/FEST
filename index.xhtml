@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Student Form</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:outputLabel for="firstname">First name</h:outputLabel>  
+            <h:inputText id="firstname" value="#{first.name}" required="true" requiredMessage="FirstName is required" /><br/>  
+            
+            <h:outputLabel for="middlename">Middle name</h:outputLabel>  
+            <h:inputText id="firstname" value="#{middle.name}"/><br/>  
+            
+            <h:outputLabel for="lastname">Last name</h:outputLabel>  
+            <h:inputText id="lastname" value="#{last.name}" required="true" requiredMessage="LastName is required" /><br/>  
+            <h:outputLabel value = "faculty" >faculty</h:outputLabel>
+            <h:selectOneListbox value = "#{userData.data}" required="true" requiredMessage="faculty is required"> 
+            <f:selectItem itemValue = "1" itemLabel = "Management" /> 
+            <f:selectItem itemValue = "2" itemLabel = "Science and Technology" />
+            </h:selectOneListbox>
+            
+            <c:choose>
+            <c:when itemLabel="#{Management}">
+                 <h:selectOneListbox value = "#{userData.data}" required="true" requiredMessage="faculty is required"> 
+                 <f:selectItem itemValue = "1" itemLabel = "BBA" /> 
+                 <f:selectItem itemValue = "2" itemLabel = "BBS" />
+                 </h:selectOneListbox>
+            </c:when>
+            <c:otherwise>
+                 <h:selectOneListbox value = "#{userData.data}" required="true" requiredMessage="faculty is required"> 
+                 <f:selectItem itemValue = "1" itemLabel = "BE.comp" /> 
+                 <f:selectItem itemValue = "2" itemLabel = "BCA" />
+                 </h:selectOneListbox>
+            </c:otherwise>
+            </c:choose>
+            
+            
+            
+            <h:outputLabel value = "program" >faculty</h:outputLabel>
+            
+            
+            <h:commandButton id="submit-button" value="Submit" action="response.xhtml"/>  
+            
+            
+        </h:form>
+    </h:body>
+</html>
+
